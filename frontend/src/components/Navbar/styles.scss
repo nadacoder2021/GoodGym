@@ -1,0 +1,15 @@
+.Navbar {
+  &-logo {
+    height: 30px;
+  }
+
+  &-grow {
+    flex-grow: 1;
+  }
+
+  &-avatar.MuiAvatar-root {
+    width: 30px;
+    height: 30px;
+    margin-left: 8px;
+  }
+}
