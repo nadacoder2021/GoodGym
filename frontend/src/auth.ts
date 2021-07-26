@@ -1,12 +1,17 @@
-/*
- * A dummy hook that returns static data for the logged in user
- */
+import { useQuery } from "@apollo/client";
+import gql from "graphql-tag";
+
+const QUERY = gql`
+  query CurrentUser {
+    currentUser {
+      id
+      name
+      avatar
+    }
+  }
+`;
+
 export const useAuth = () => {
-  return {
-    user: {
-      id: "1",
-      name: "GoodGymRunner",
-      avatar: "/img/default-avatar.png",
-    },
-  };
+  const { data } = useQuery(QUERY);
+  return { user: data?.currentUser };
 };

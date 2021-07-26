@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "concurrently --names '[frontend],[backend:build],[backend:server]     ' --prefix \"| {name} |\" --prefix-colors blue,green,red  \"cd frontend && yarn start\" \"cd backend && yarn build\" \"cd backend && yarn start\""
+    "start": "concurrently --names '[frontend],[backend]     ' --prefix \"| {name} |\" --prefix-colors blue,green,red  \"cd frontend && yarn start\" \"cd backend && rails s\""
   },
   "dependencies": {
     "@types/node": "^14.14.10",

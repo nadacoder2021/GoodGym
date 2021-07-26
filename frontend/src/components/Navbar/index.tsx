@@ -6,6 +6,7 @@ import { useAuth } from "auth";
 
 const Navbar = () => {
   const { user } = useAuth();
+  if (!user) return null;
   return (
     <React.Fragment>
       <UI.AppBar className="Navbar" color="secondary" position="fixed">
