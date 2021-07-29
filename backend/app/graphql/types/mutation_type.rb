@@ -15,6 +15,7 @@ module Types
 
     def unregister(session_id:)
       Registration.find_by(user_id: User.first.id, session_id: session_id)&.destroy
+      true
     end
   end
 end
