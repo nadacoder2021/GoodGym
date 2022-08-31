@@ -12,6 +12,6 @@ We've tried to make the exercise representative of a realistic task you might ne
 4. Run `rails db:migrate db:seed` in the `backend` directory to create and populate the project's database.
 5. Run `yarn start` in the repository's root directory. This will start both the frontend and backend (you can run them separately if you want to) and open the app at [http://localhost:3000](http://localhost:3000).
 
-You can access the GraphIQL interface of the Rails app at [http://localhost:3001/graphql](http://localhost:3000/graphql).
+You can access the GraphIQL interface of the Rails app at [http://localhost:3001/graphiql](http://localhost:3001/graphiql).
 
 All further instuctions you need you should be able to find in the app itself, but if you have any questions please don't hesitate to get in touch. We're looking forward to seeing your solution!
