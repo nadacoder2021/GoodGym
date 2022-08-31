@@ -1,0 +1,28 @@
+overwrite: true
+schema: "http://localhost:3001/graphql"
+documents:
+  - "src/**/*.gql"
+  - "src/**/!(*.d).{ts,tsx}"
+generates:
+  src/graphql/types.ts:
+    hooks:
+      afterOneFileWrite:
+        - prettier --write
+    config:
+      enumsAsTypes: true
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+  ./graphql.schema.json:
+    plugins:
+      - "introspection"
+  src/graphql/fragmentMatcher.ts:
+    plugins:
+      - "fragment-matcher"
+  src/graphql/hooks.ts:
+    preset: import-types
+    presetConfig:
+      typesPath: "./types"
+    plugins:
+      - "typescript-react-apollo"

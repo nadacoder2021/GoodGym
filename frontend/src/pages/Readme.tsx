@@ -1,5 +1,5 @@
 import React from "react";
-import * as UI from "@material-ui/core";
+import * as UI from "@mui/material";
 import { useAuth } from "auth";
 
 const Readme = () => {
@@ -59,11 +59,6 @@ const Readme = () => {
           `src/pages/Solution.tsx`.
         </li>
         <li>Install any additional node modules you like.</li>
-        <li>
-          You don't need to follow the existing code conventions in this
-          project. Part of your role will be setting the conventions we use, so
-          write code as you like it to be written.
-        </li>
         <li>
           We're interested in how you structure, test, and style your code and
           components.
