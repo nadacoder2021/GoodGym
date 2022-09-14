@@ -19,8 +19,8 @@ export const RegisterButton = ({ buttonId }: any) => {
     const buttonId = parseInt(
       Event.currentTarget.getAttribute("value") as string
     );
-    registerUser();
     setSessionId(buttonId);
+    registerUser();
     setRegistered(false);
   };
 

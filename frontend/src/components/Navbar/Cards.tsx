@@ -13,8 +13,8 @@ import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ShareIcon from "@mui/icons-material/Share";
-
-import { RegisterButton } from "components/Navbar/Buttons";
+import { ExpandIcon } from "components/ExpandIcon";
+import { RegisterButton } from "components/Navbar/RegisterButton";
 import { PeopleIcon } from "./PeopleIcon";
 import Grid from "@mui/material/Unstable_Grid2";
 
@@ -91,24 +91,8 @@ export const Cards = ({ sessions }: any) => {
                   <PeopleIcon id={element.id} />
                 </IconButton>
                 <RegisterButton buttonId={element.id}></RegisterButton>
-                <ExpandMore
-                  expand={expanded}
-                  onClick={() => handleExpandClick()}
-                  aria-expanded={expandedId}
-                  aria-label="show more"
-                >
-                  <ExpandMoreIcon />
-                </ExpandMore>
+               <ExpandIcon expandId={element.id}/>
               </CardActions>
-              <Collapse in={expanded} timeout="auto" unmountOnExit>
-                <CardContent>
-                  <Typography paragraph>More information</Typography>
-                  <Typography paragraph>Details of the Event</Typography>
-                  <Typography paragraph>
-                    What, Where, How and When of the event
-                  </Typography>
-                </CardContent>
-              </Collapse>
             </Card>
           </Grid>
         ))}
