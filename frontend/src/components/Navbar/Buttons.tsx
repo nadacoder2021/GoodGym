@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useRegister, useUnRegister } from "mutations";
 import Button from "@mui/material/Button";
 
-export const RegisterButton = ({ el }: any) => {
+export const RegisterButton = ({ buttonId }: any) => {
   const [registered, setRegistered] = useState(!false);
   const [sessionId, setSessionId] = useState(0);
-  const { registerUser, registerUserData } = useRegister(sessionId);
+  const { registerUser } = useRegister(sessionId);
   const { unregisterUser } = useUnRegister(sessionId);
 
   useEffect(() => {
@@ -19,6 +19,7 @@ export const RegisterButton = ({ el }: any) => {
     const buttonId = parseInt(
       Event.currentTarget.getAttribute("value") as string
     );
+    registerUser();
     setSessionId(buttonId);
     setRegistered(false);
   };
@@ -39,7 +40,7 @@ export const RegisterButton = ({ el }: any) => {
         <Button
           sx={{ marginInline: 3 }}
           variant="contained"
-          value={el}
+          value={buttonId}
           onClick={onClickRegister}
         >
           Register
@@ -48,7 +49,7 @@ export const RegisterButton = ({ el }: any) => {
         <Button
           sx={{ marginInline: 3 }}
           variant="contained"
-          value={el}
+          value={buttonId}
           onClick={onClickUnRegister}
         >
           UnRegister
