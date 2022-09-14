@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_26_080255) do
-
+ActiveRecord::Schema[7.0].define(version: 2021_07_26_080255) do
   create_table "registrations", force: :cascade do |t|
     t.integer "user_id"
     t.integer "session_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["session_id"], name: "index_registrations_on_session_id"
     t.index ["user_id"], name: "index_registrations_on_user_id"
   end
@@ -25,16 +24,16 @@ ActiveRecord::Schema.define(version: 2021_07_26_080255) do
     t.string "title"
     t.string "strapline"
     t.string "description"
-    t.datetime "start_time"
+    t.datetime "start_time", precision: nil
     t.string "image"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
