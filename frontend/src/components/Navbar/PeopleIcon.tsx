@@ -3,15 +3,15 @@ import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import { use1Session } from "sessions";
 
 export const PeopleIcon = ({ id }: any) => {
-  const [session1, setSession1] = useState(1)
+  const [session1, setSession1] = useState()
+  const [sessionId, setSessionId] = useState(1)
    
-  const { session } = use1Session(id);
-
-  useEffect(()=> setSession1(session), [session])
+  const { session } = use1Session(sessionId);
+  useEffect(()=> setSessionId(id), [id])
 
   
  
-  console.log("1 session", session);
+  console.log("1 session", session.session);
   
   return (
     <>
