@@ -15,51 +15,70 @@ import { RegisterButton } from "components/RegisterButton/Index";
 import { PeopleIcon } from "../PeopleIcon/Index";
 import Grid from "@mui/material/Unstable_Grid2";
 
-
-
 //spacing={0} alignItems="center" direction="column"
 export const Cards = ({ sessions }: any) => {
   return (
     <div>
-      <Grid container style={{}}>
+      <Grid container style={{ height: "100%" }}>
         {sessions.map((element: any) => (
-          <Grid key={element.id} xs={12} md={6}>
+          <Grid key={element.id} xs={12} sm={12} md={6}>
             <Card
               key={element.id}
               sx={{
                 border: "1px solid black",
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
+                justifyContent: "space-between",
                 maxWidth: "60vw",
+                alignItems: "center",
                 minWidth: 280,
-                maxHeight: 660,
-                overflow:"hidden",
+                overflow: "hidden",
                 margin: 4,
                 padding: 5,
               }}
             >
               <CardHeader
                 avatar={<Avatar src={gymAvatar} aria-label="session"></Avatar>}
-                titleTypographyProps={{ variant: "h5", align: "center" , fontFamily:"allesans"}}
+                titleTypographyProps={{
+                  variant: "h5",
+                  align: "center",
+                  fontFamily: "allesans",
+                }}
                 subheaderTypographyProps={{
-                  variant: "h6",fontFamily:"allesans", textAlign:"left"
+                  variant: "h6",
+                  fontFamily: "allesans",
+                  textAlign: "left",
                 }}
                 title={element.title}
                 subheader={new Date(element.startTime).toDateString()}
               />
               <CardMedia
                 component="img"
-                style={{maxHeight:286.66}}
+                style={{ maxHeight: "20vh", minHeight: "20vh" }}
                 image={element.image}
                 alt="sessions"
               />
+              <div>
               <CardContent>
-                <Typography  style={{fontFamily: "allesans", fontSize:"16px"}} variant="body1" color="black">
+                <Typography
+                  style={{
+                    fontFamily: "allesans",
+                    fontSize: "16px",
+                    position: "absolute",
+                    textAlign:"center",
+                    wordWrap: "break-word"
+                  }}
+                  variant="body1"
+                  color="black"
+                >
                   {element.strapline}
                 </Typography>
               </CardContent>
-              <CardActions sx={{ display: "flex" }} disableSpacing>
+              
+              <CardActions
+                sx={{ display: "flex", position: "relative" }}
+                disableSpacing
+              >
                 <IconButton aria-label="add to favorites">
                   <FavoriteIcon />
                 </IconButton>
@@ -72,6 +91,7 @@ export const Cards = ({ sessions }: any) => {
                 <RegisterButton buttonId={element.id}></RegisterButton>
                 <ExpandIcon expandId={element.id} />
               </CardActions>
+              </div>
             </Card>
           </Grid>
         ))}
