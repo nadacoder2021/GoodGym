@@ -15,12 +15,14 @@ import { RegisterButton } from "components/RegisterButton/Index";
 import { PeopleIcon } from "../PeopleIcon/Index";
 import Grid from "@mui/material/Unstable_Grid2";
 
+
+//spacing={0} alignItems="center" direction="column"
 export const Cards = ({ sessions }: any) => {
   return (
     <div>
-      <Grid container spacing={0} alignItems="center" direction="column">
+      <Grid container style={{}}>
         {sessions.map((element: any) => (
-          <Grid key={element.id} xs={8} md={8}>
+          <Grid key={element.id} xs={12} md={6}>
             <Card
               key={element.id}
               sx={{
