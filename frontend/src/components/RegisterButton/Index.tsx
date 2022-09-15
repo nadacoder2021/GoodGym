@@ -40,7 +40,7 @@ export const RegisterButton = ({ buttonId }: any, {onChange}:any) => {
     <>
       {registered ? (
         <Button
-          sx={{ marginInline: 3 }}
+          sx={{ marginInline: 2, minWidth:80 }}
           variant="contained"
           value={buttonId}
           onClick={onClickRegister}
@@ -49,7 +49,7 @@ export const RegisterButton = ({ buttonId }: any, {onChange}:any) => {
         </Button>
       ) : (
         <Button
-          sx={{ marginInline: 3 }}
+          sx={{ marginInline: 2, minWidth:80 }}
           variant="contained"
           value={buttonId}
           onClick={onClickUnRegister}

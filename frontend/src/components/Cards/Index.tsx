@@ -32,7 +32,8 @@ export const Cards = ({ sessions }: any) => {
                 alignItems: "center",
                 maxWidth: "60vw",
                 minWidth: 280,
-                maxHeight: 600,
+                maxHeight: 660,
+                overflow:"hidden",
                 margin: 4,
                 padding: 5,
               }}
@@ -48,7 +49,7 @@ export const Cards = ({ sessions }: any) => {
               />
               <CardMedia
                 component="img"
-                height="370"
+                style={{maxHeight:286.66}}
                 image={element.image}
                 alt="sessions"
               />
