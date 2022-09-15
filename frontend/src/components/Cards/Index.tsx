@@ -1,51 +1,26 @@
-import React, { useState } from "react";
-import { styled } from "@mui/material/styles";
+import React from "react";
 import gymAvatar from "../../images/goodGymAvatar.png";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
-import IconButton, { IconButtonProps } from "@mui/material/IconButton";
+import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ShareIcon from "@mui/icons-material/Share";
-import { ExpandIcon } from "components/ExpandIcon";
-import { RegisterButton } from "components/Navbar/RegisterButton";
-import { PeopleIcon } from "./PeopleIcon";
+import { ExpandIcon } from "components/ExpandIcon/Index";
+import { RegisterButton } from "components/RegisterButton/Index";
+import { PeopleIcon } from "../PeopleIcon/Index";
 import Grid from "@mui/material/Unstable_Grid2";
 
 export const Cards = ({ sessions }: any) => {
-  const [expanded, setExpanded] = useState(false);
-  const [expandedId, setExpandedId] = useState(false);
-
-  interface ExpandMoreProps extends IconButtonProps {
-    expand: boolean;
-  }
-
-  const ExpandMore = styled((props: ExpandMoreProps) => {
-    const { expand, ...other } = props;
-    return <IconButton {...other} />;
-  })(({ theme, expand }) => ({
-    transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-    marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
-      duration: theme.transitions.duration.shortest,
-    }),
-  }));
-  const handleExpandClick = () => {
-    // if(expandedId !== true) setExpandedId(expandedId === i ? false : i)
-    setExpanded(!expanded);
-  };
-
   return (
     <div>
       <Grid container spacing={0} alignItems="center" direction="column">
         {sessions.map((element: any) => (
-          <Grid key={element.id} xs={7} md={8}>
+          <Grid key={element.id} xs={8} md={8}>
             <Card
               key={element.id}
               sx={{
@@ -55,7 +30,7 @@ export const Cards = ({ sessions }: any) => {
                 alignItems: "center",
                 maxWidth: "60vw",
                 minWidth: 280,
-                minHeight: 600,
+                maxHeight: 600,
                 margin: 4,
                 padding: 5,
               }}
@@ -88,10 +63,10 @@ export const Cards = ({ sessions }: any) => {
                   <ShareIcon />
                 </IconButton>
                 <IconButton aria-label="people attending">
-                  <PeopleIcon id={element.id} />
+                  <PeopleIcon id={element.signups.length} />
                 </IconButton>
                 <RegisterButton buttonId={element.id}></RegisterButton>
-               <ExpandIcon expandId={element.id}/>
+                <ExpandIcon expandId={element.id} />
               </CardActions>
             </Card>
           </Grid>

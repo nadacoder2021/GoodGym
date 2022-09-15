@@ -10,10 +10,22 @@ const QUERY = gql`
     image
     startTime
     __typename
+    signups{
+      name
+    }
     } 
   }
 `;
+const TEST = gql`
+query sessions{
+  sessions{
+    signups{
+      name
+    }
+  }
+}
 
+`
 
 
 const QUERYSESSION = gql`
@@ -36,11 +48,16 @@ export const useSession = () => {
   return { sessions: data?.sessions };
 
 };
-// type MutationFunction = (sessionId: number) => {};
 
-export const use1Session = (sessionId: number) => {
-  const {data} = useQuery(QUERYSESSION, {
-    variables: {sessionId:sessionId}
-  });
-  return {session: data}
-}
+
+// export const use1Session = (sessionId: number) => {
+//   const {data} = useQuery(QUERYSESSION, {
+//     variables: {sessionId:sessionId}
+//   });
+//   return {session: data}
+// }
+
+// export const useTest = () => {
+//   const {data} = useQuery(TEST); 
+//   return { signupArray: data?.sessions };
+// }

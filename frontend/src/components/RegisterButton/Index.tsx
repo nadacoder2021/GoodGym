@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useRegister, useUnRegister } from "mutations";
 import Button from "@mui/material/Button";
 
-export const RegisterButton = ({ buttonId }: any) => {
+export const RegisterButton = ({ buttonId }: any, {onChange}:any) => {
   const [registered, setRegistered] = useState(!false);
   const [sessionId, setSessionId] = useState(0);
+
+
   const { registerUser } = useRegister(sessionId);
   const { unregisterUser } = useUnRegister(sessionId);
 

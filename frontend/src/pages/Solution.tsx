@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "auth";
 import { useSession } from "sessions";
-import { Cards } from "components/Navbar/Cards";
-
-// Styling Main Div
-const styles = {
-  container: {
-  },
-};
+import { Cards } from "components/Cards/Index";
+import { Header } from "components/Header/index";
 
 const Solution = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -24,13 +19,14 @@ const Solution = () => {
   useEffect(() => setAllSessions(sessions), [sessions]);
 
   // If user is not logged in
-  if (!user) return <p>Please sign in or register</p>;
+  if (!user) return <h2>Please sign in or register</h2>;
 
   // If there are no sessions
-  if (!sessions) return <p>Data hasn't arrived yet</p>;
+  if (!sessions) return <h4>Please wait. Loading...</h4>;
 
   return (
-    <div style={styles.container as React.CSSProperties}>
+    <div>
+      <Header />
       <Cards sessions={sessions} />
     </div>
   );
