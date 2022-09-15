@@ -16,6 +16,7 @@ import { PeopleIcon } from "../PeopleIcon/Index";
 import Grid from "@mui/material/Unstable_Grid2";
 
 
+
 //spacing={0} alignItems="center" direction="column"
 export const Cards = ({ sessions }: any) => {
   return (
@@ -40,9 +41,9 @@ export const Cards = ({ sessions }: any) => {
             >
               <CardHeader
                 avatar={<Avatar src={gymAvatar} aria-label="session"></Avatar>}
-                titleTypographyProps={{ variant: "h5", align: "center" }}
+                titleTypographyProps={{ variant: "h5", align: "center" , fontFamily:"allesans"}}
                 subheaderTypographyProps={{
-                  variant: "h6",
+                  variant: "h6",fontFamily:"allesans", textAlign:"left"
                 }}
                 title={element.title}
                 subheader={new Date(element.startTime).toDateString()}
@@ -54,7 +55,7 @@ export const Cards = ({ sessions }: any) => {
                 alt="sessions"
               />
               <CardContent>
-                <Typography variant="body1" color="text.secondary">
+                <Typography  style={{fontFamily: "allesans", fontSize:"16px"}} variant="body1" color="black">
                   {element.strapline}
                 </Typography>
               </CardContent>
