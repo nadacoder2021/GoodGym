@@ -35,6 +35,9 @@ export const Cards = ({ sessions }: any) => {
                 overflow: "hidden",
                 margin: 4,
                 padding: 5,
+                borderRadius:"25px",
+                boxShadow:"0 2px 7px 1px black",
+                position:"relative"
               }}
             >
               <CardHeader
@@ -42,7 +45,7 @@ export const Cards = ({ sessions }: any) => {
                 titleTypographyProps={{
                   variant: "h5",
                   align: "center",
-                  fontFamily: "allesans",
+                  fontFamily: "allesans"
                 }}
                 subheaderTypographyProps={{
                   variant: "h6",
