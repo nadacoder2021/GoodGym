@@ -15,7 +15,6 @@ import { RegisterButton } from "components/RegisterButton/Index";
 import { PeopleIcon } from "../PeopleIcon/Index";
 import Grid from "@mui/material/Unstable_Grid2";
 
-//spacing={0} alignItems="center" direction="column"
 export const Cards = ({ sessions }: any) => {
   return (
     <div>
@@ -35,9 +34,9 @@ export const Cards = ({ sessions }: any) => {
                 overflow: "hidden",
                 margin: 4,
                 padding: 5,
-                borderRadius:"25px",
-                boxShadow:"0 2px 7px 1px black",
-                position:"relative"
+                borderRadius: "25px",
+                boxShadow: "0 2px 7px 1px black",
+                position: "relative",
               }}
             >
               <CardHeader
@@ -45,7 +44,7 @@ export const Cards = ({ sessions }: any) => {
                 titleTypographyProps={{
                   variant: "h5",
                   align: "center",
-                  fontFamily: "allesans"
+                  fontFamily: "allesans",
                 }}
                 subheaderTypographyProps={{
                   variant: "h6",
@@ -62,38 +61,38 @@ export const Cards = ({ sessions }: any) => {
                 alt="sessions"
               />
               <div>
-              <CardContent>
-                <Typography
-                  style={{
-                    fontFamily: "allesans",
-                    fontSize: "16px",
-                    position: "absolute",
-                    textAlign:"center",
-                    wordWrap: "break-word"
-                  }}
-                  variant="body1"
-                  color="black"
+                <CardContent>
+                  <Typography
+                    style={{
+                      fontFamily: "allesans",
+                      fontSize: "16px",
+                      position: "absolute",
+                      textAlign: "center",
+                      wordWrap: "break-word",
+                    }}
+                    variant="body1"
+                    color="black"
+                  >
+                    {element.strapline}
+                  </Typography>
+                </CardContent>
+
+                <CardActions
+                  sx={{ display: "flex", position: "relative" }}
+                  disableSpacing
                 >
-                  {element.strapline}
-                </Typography>
-              </CardContent>
-              
-              <CardActions
-                sx={{ display: "flex", position: "relative" }}
-                disableSpacing
-              >
-                <IconButton aria-label="add to favorites">
-                  <FavoriteIcon />
-                </IconButton>
-                <IconButton aria-label="share">
-                  <ShareIcon />
-                </IconButton>
-                <IconButton aria-label="people attending">
-                  <PeopleIcon id={element.signups.length} />
-                </IconButton>
-                <RegisterButton buttonId={element.id}></RegisterButton>
-                <ExpandIcon expandId={element.id} />
-              </CardActions>
+                  <IconButton aria-label="add to favorites">
+                    <FavoriteIcon />
+                  </IconButton>
+                  <IconButton aria-label="share">
+                    <ShareIcon />
+                  </IconButton>
+                  <IconButton aria-label="people attending">
+                    <PeopleIcon id={element.signups.length} />
+                  </IconButton>
+                  <RegisterButton buttonId={element.id}></RegisterButton>
+                  <ExpandIcon expandId={element.id} />
+                </CardActions>
               </div>
             </Card>
           </Grid>

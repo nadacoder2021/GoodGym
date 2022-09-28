@@ -16,7 +16,7 @@ const QUERY = gql`
     } 
   }
 `;
-const TEST = gql`
+const SIGNUPS = gql`
 query sessions{
   sessions{
     signups{
@@ -28,36 +28,14 @@ query sessions{
 `
 
 
-const QUERYSESSION = gql`
-query getSessions($sessionId: ID!) {
- session (id:$sessionId){
-    id
-    title
-    signups {
-      id
-      name
-    }
-  }
-    }`
-
-
+export const useSignUps = () => {
+  const {data, refetch} = useQuery(SIGNUPS);
+  return { signUps: data?.sessions, refetch}
+}
 
 export const useSession = () => {
   const { data } = useQuery(QUERY);
-  console.log("AllSessions", data?.sessions)
   return { sessions: data?.sessions };
 
 };
 
-
-// export const use1Session = (sessionId: number) => {
-//   const {data} = useQuery(QUERYSESSION, {
-//     variables: {sessionId:sessionId}
-//   });
-//   return {session: data}
-// }
-
-// export const useTest = () => {
-//   const {data} = useQuery(TEST); 
-//   return { signupArray: data?.sessions };
-// }

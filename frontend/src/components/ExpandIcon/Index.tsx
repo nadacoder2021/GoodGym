@@ -10,7 +10,7 @@ import CardContent from "@mui/material/CardContent";
 export const ExpandIcon = ({ expandId }: any) =>{
 
     const [expanded, setExpanded] = useState(false);
-    const [expandedId , setExpandedId] = useState(0)
+    const [expandedId , setExpandedId] = useState(expandId)
    
   
     interface ExpandMoreProps extends IconButtonProps {
