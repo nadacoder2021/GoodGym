@@ -20,7 +20,7 @@ export const Cards = ({ sessions }: any) => {
     <div>
       <Grid container style={{ height: "100%"}}>
         {sessions.map((element: any) => (
-          <Grid key={element.id} xs={12} sm={12} md={6}>
+          <Grid style={{display:"flex", justifyContent:"space-evenly"}} key={element.id} xs={12} sm={12} md={6}>
             <Card
               key={element.id}
               sx={{
@@ -28,15 +28,12 @@ export const Cards = ({ sessions }: any) => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                maxWidth: "55vw",
+                maxWidth: "65vw",
                 alignItems: "center",
-                minWidth: 280,
+                minWidth: 240,
                 overflow: "hidden",
                 margin: 1,
                 padding: 5,
-                width:{
-                  sx: 100
-                },
                 borderRadius: "25px",
                 boxShadow: "0 2px 7px 1px black",
                 position: "relative",
