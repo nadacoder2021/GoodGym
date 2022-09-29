@@ -18,7 +18,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 export const Cards = ({ sessions }: any) => {
   return (
     <div>
-      <Grid container style={{ height: "100%" }}>
+      <Grid container style={{ height: "100%" , width: "100vw"}}>
         {sessions.map((element: any) => (
           <Grid key={element.id} xs={12} sm={12} md={6}>
             <Card
@@ -28,12 +28,15 @@ export const Cards = ({ sessions }: any) => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                maxWidth: "60vw",
+                maxWidth: "55vw",
                 alignItems: "center",
                 minWidth: 280,
                 overflow: "hidden",
-                margin: 4,
+                margin: 1,
                 padding: 5,
+                width:{
+                  sx: 100
+                },
                 borderRadius: "25px",
                 boxShadow: "0 2px 7px 1px black",
                 position: "relative",

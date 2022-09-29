@@ -4,8 +4,8 @@ import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 
 
 export const PeopleIcon = ({ id }: any) => {
-  const {signUps} = useSignUps()
-  console.log("people icon sign ups", signUps)
+
+
 
   return (
     <>

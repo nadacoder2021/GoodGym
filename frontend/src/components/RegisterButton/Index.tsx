@@ -1,28 +1,22 @@
-import React, { useEffect, useState, useContext } from "react";
-import { UpdatingSessions } from "pages/Solution";
+import React, { useEffect, useState } from "react";
 import { useRegister, useUnRegister } from "mutations";
 import { useSession } from "sessions";
+import { useAuth } from "auth";
 import Button from "@mui/material/Button";
-import { SessionContextType } from "pages/Solution";
 import { useSignUps } from "sessions";
-
-
-
 
 export const RegisterButton = ({ buttonId }: any, { onChange }: any) => {
   const [registered, setRegistered] = useState(false);
   const [sessionId, setSessionId] = useState(0);
-  
 
-  //Accessing the states of parent component using useContext
-  const {setAllSessions} = useContext<SessionContextType>(UpdatingSessions)
   const { registerUser } = useRegister(sessionId);
   const { unregisterUser } = useUnRegister(sessionId);
+  const {user}  = useAuth()
+  const { sessions } = useSession();
+  const { refetch, signUps } = useSignUps();
+console.log(signUps)
+//  const findName = signUps
 
-  const {sessions} = useSession()
-  const {refetch} = useSignUps()
- 
- 
   useEffect(() => {
     if (sessionId !== 0) {
       registerUser();
@@ -38,9 +32,8 @@ export const RegisterButton = ({ buttonId }: any, { onChange }: any) => {
     setSessionId(buttonId);
     registerUser();
     setRegistered(!registered);
-    setAllSessions(sessions)
-    refetch()
-    console.log("array when registered", sessions)
+    refetch();
+    console.log("array when registered", sessions);
   };
 
   const onClickUnRegister = (Event: React.MouseEvent<HTMLButtonElement>) => {
@@ -51,9 +44,8 @@ export const RegisterButton = ({ buttonId }: any, { onChange }: any) => {
     setSessionId(buttonId);
     unregisterUser();
     setRegistered(!registered);
-    setAllSessions(sessions)
-    refetch()
-    console.log("array when unregistered", sessions)
+    refetch();
+    console.log("array when unregistered", sessions);
   };
 
   return (

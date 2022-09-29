@@ -25,12 +25,8 @@ const Solution = () => {
   //The current user is logged in
   const { user } = useAuth();
 
-  //Re-render the page every time user is changed
-
-
   //Get all the sessions and re-render when sessions are updated
   const { sessions } = useSession();
- 
 
   // If user is not logged in
   if (!user) return <h4>Please sign in or register</h4>;
