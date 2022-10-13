@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import gymAvatar from "../../images/goodGymAvatar.png";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -16,18 +16,35 @@ import { PeopleIcon } from "../PeopleIcon/Index";
 import Grid from "@mui/material/Unstable_Grid2";
 
 export const Cards = ({ sessions }: any) => {
+  const [dimensions, setDimensions] = useState(window.screen.width);
+  const isMobile = dimensions < 700;
+
+  useEffect(
+    () =>
+      function handleResize() {
+        setDimensions(window.screen.width);
+        window.addEventListener("resize", handleResize);
+      },
+    []
+  );
   return (
     <div>
-      <Grid container style={{ height: "100%"}}>
+      <Grid container style={{ height: "100%" }}>
         {sessions.map((element: any) => (
-          <Grid style={{display:"flex", justifyContent:"space-evenly"}} key={element.id} xs={12} sm={12} md={6}>
+          <Grid
+            style={{ display: "flex", justifyContent: "space-evenly" }}
+            key={element.id}
+            xs={12}
+            sm={12}
+            md={6}
+          >
             <Card
               key={element.id}
               sx={{
                 border: "1px solid black",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "space-between",
+                justifyContent: "space-evenly",
                 maxWidth: "65vw",
                 alignItems: "center",
                 minWidth: 240,
@@ -60,40 +77,77 @@ export const Cards = ({ sessions }: any) => {
                 image={element.image}
                 alt="sessions"
               />
-              <div>
-                <CardContent>
-                  <Typography
-                    style={{
-                      fontFamily: "allesans",
-                      fontSize: "16px",
-                      position: "absolute",
-                      textAlign: "center",
-                      wordWrap: "break-word",
+              {isMobile ? (
+                <div>
+                  <CardContent>
+                    <Typography
+                      style={{
+                        fontFamily: "allesans",
+                        fontSize: "16px",
+                        textAlign: "center",
+                        wordWrap: "break-word",
+                      }}
+                      variant="body1"
+                      color="black"
+                    >
+                      {element.strapline}
+                    </Typography>
+                  </CardContent>
+                  <CardActions
+                    sx={{
+                      display: "flex",
+                      position: "relative",
+                      flexDirection: "column",
                     }}
-                    variant="body1"
-                    color="black"
+                    disableSpacing
                   >
-                    {element.strapline}
-                  </Typography>
-                </CardContent>
-
-                <CardActions
-                  sx={{ display: "flex", position: "relative" }}
-                  disableSpacing
-                >
-                  <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
-                  </IconButton>
-                  <IconButton aria-label="share">
-                    <ShareIcon />
-                  </IconButton>
-                  <IconButton aria-label="people attending">
-                    <PeopleIcon id={element.signups.length} />
-                  </IconButton>
-                  <RegisterButton buttonId={element.id}></RegisterButton>
-                  <ExpandIcon expandId={element.id} />
-                </CardActions>
-              </div>
+                    <IconButton aria-label="add to favorites">
+                      <FavoriteIcon />
+                    </IconButton>
+                    <IconButton aria-label="share">
+                      <ShareIcon />
+                    </IconButton>
+                    <IconButton aria-label="people attending">
+                      <PeopleIcon id={element.signups.length} />
+                    </IconButton>
+                    <RegisterButton buttonId={element.id}></RegisterButton>
+                    <ExpandIcon expandId={element.id} />
+                  </CardActions>
+                </div>
+              ) : (
+                <div>
+                  <CardContent>
+                    <Typography
+                      style={{
+                        fontFamily: "allesans",
+                        fontSize: "16px",
+                        textAlign: "center",
+                        wordWrap: "break-word",
+                      }}
+                      variant="body1"
+                      color="black"
+                    >
+                      {element.strapline}
+                    </Typography>
+                  </CardContent>
+                  <CardActions
+                    sx={{ display: "flex", position: "relative" }}
+                    disableSpacing
+                  >
+                    <IconButton aria-label="add to favorites">
+                      <FavoriteIcon />
+                    </IconButton>
+                    <IconButton aria-label="share">
+                      <ShareIcon />
+                    </IconButton>
+                    <IconButton aria-label="people attending">
+                      <PeopleIcon id={element.signups.length} />
+                    </IconButton>
+                    <RegisterButton buttonId={element.id}></RegisterButton>
+                    <ExpandIcon expandId={element.id} />
+                  </CardActions>
+                </div>
+              )}
             </Card>
           </Grid>
         ))}
